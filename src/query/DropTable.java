@@ -31,9 +31,9 @@ class DropTable implements Plan {
   public void execute() {
 
     IndexDesc[] inds = Minibase.SystemCatalog.getIndexes(fileName);
-System.out.println("table to drop: " + fileName);
+//System.out.println("table to drop: " + fileName);
     for (IndexDesc ind : inds) {
-System.out.println("index to delete: " + ind.indexName);
+//System.out.println("index to delete: " + ind.indexName);
 }
     for (IndexDesc ind : inds) {
 //      new HashIndex(ind.indexName).deleteFile();

@@ -43,7 +43,7 @@ class CreateIndex implements Plan {
   public void execute() {
 
     new HashIndex(fileName);
-System.out.println("index to create: " + fileName);
+//System.out.println("index to create: " + fileName);
     Minibase.SystemCatalog.createIndex(fileName, iTable, iColumn);
 
 		System.out.println("Index created.");

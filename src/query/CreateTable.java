@@ -38,7 +38,7 @@ class CreateTable implements Plan {
    */
   public void execute() {
 
-System.out.println("table to create: " + fileName);
+//System.out.println("table to create: " + fileName);
 
     new HeapFile(fileName);
 

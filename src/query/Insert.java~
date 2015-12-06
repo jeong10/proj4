@@ -47,7 +47,7 @@ class Insert implements Plan {
 
 		RID rid = hf.insertRecord(tuple.getData());
 
-//		tuple.print();
+		tuple.print();
     System.out.println("Tuple Inserted.");
   }
 
