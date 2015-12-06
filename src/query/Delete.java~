@@ -5,6 +5,7 @@ import global.RID;
 import parser.AST_Delete;
 import parser.ParseException;
 import heap.HeapFile;
+//import heap.HeapScan;
 import relop.*;
 
 /**
