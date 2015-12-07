@@ -1,11 +1,10 @@
 package query;
 
-import global.Minibase;
-import global.RID;
+import global.*;
+import relop.*;
 import parser.AST_Delete;
 import parser.ParseException;
 import heap.HeapFile;
-import relop.*;
 
 /**
  * Execution plan for deleting tuples.
@@ -47,6 +46,8 @@ class Delete implements Plan {
 		for (Predicate[] pred : preds) {
 			select = new Selection(fs, pred);
 
+			select.restart();
+
 			while (select.hasNext()) {
 				Tuple currTuple = select.getNext();
 				byte[] data = currTuple.getData();
@@ -54,14 +55,16 @@ class Delete implements Plan {
 				while (fs.hasNext()) {
 					Tuple checkTuple = fs.getNext();
 
+					//	fix?
 					if (currTuple.getData() == checkTuple.getData()) {
 currTuple.print();
 						hf.deleteRecord(dummy);
+
+System.out.println("Tuple to delete: " + currTuple.getData());
+						break;
 					}
 				}
 			}
-
-			select.close();
 		}
 
     System.out.println("Tuple deleted.");

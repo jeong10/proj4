@@ -89,7 +89,7 @@ break;
 					if (eq) {
 						for (int i=0; i<columns.length; i++) {
 							checkTuple.setField(columns[i], values[i]);
-//System.out.println("updating " + fileName + " at: " + columns[i] + " with " + values[i]);
+System.out.println("updating " + fileName + " at: " + columns[i] + " with " + values[i]);
 						}
 
 						//	update index?

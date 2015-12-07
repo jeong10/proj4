@@ -1,11 +1,11 @@
 package query;
 
 import global.*;
+import relop.*;
 import parser.AST_Insert;
 import parser.ParseException;
 import heap.HeapFile;
 import index.HashIndex;
-import relop.*;
 
 /**
  * Execution plan for inserting tuples.
@@ -48,7 +48,7 @@ class Insert implements Plan {
 		IndexDesc[] indexes = Minibase.SystemCatalog.getIndexes(fileName);
 
 		if (indexes != null) {
-System.out.println("index in table " + fileName);
+//System.out.println("index in table " + fileName);
 
 			for (IndexDesc index : indexes) {
 		    HashIndex hi = new HashIndex(index.indexName);
@@ -56,7 +56,7 @@ System.out.println("index in table " + fileName);
 				SearchKey key = new SearchKey(tuple.getField(index.columnName));
 
 				hi.insertEntry(key, new RID());
-System.out.println("create index; key: " + tuple.getField(index.columnName));
+//System.out.println("create index; key=" + tuple.getField(index.columnName));
 			}
 		}
 
